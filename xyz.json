@@ -1,0 +1,20 @@
+  {
+      "menu": [
+          {
+              "burrito": {
+                  "item": "burrito",
+                  "price": "10",
+                  "ingred": "ingred",
+                  "prep_time": "1"
+              }
+          },
+          {
+              "salsachips": {
+                  "item": "salsachips",
+                  "price": "20",
+                  "ingred": "ingred",
+                  "prep_time": "1"
+              }
+          }
+      ]
+  }
