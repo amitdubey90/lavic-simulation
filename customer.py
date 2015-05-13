@@ -3,6 +3,7 @@ import Queue
 import json
 import random
 import sys
+import socket
 from time import sleep
 from threading import Thread
 from RequestProcessor import RequestProcessor
@@ -50,7 +51,8 @@ class Customer(object):
 	def ativate_customer(self):
 		def activate():
 			"""register to the nameserver"""
-			self.daemon=Pyro4.Daemon("192.168.0.39")
+			myIp = str(socket.gethostbyname(socket.gethostname()))
+			self.daemon=Pyro4.Daemon(myIp)
 			ns=Pyro4.locateNS()#(host = "PYRO:Pyro.NameServer")
 			uri=self.daemon.register(self)
 			ns.register(self.customer_name, uri)

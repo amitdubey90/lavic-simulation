@@ -47,7 +47,8 @@ class RequestProcessor(Thread):
 		elif message['messageType'] == 'ORDER_PREPARED': #will contain order
 
 			if self.customer.checkIfMyOrder(message['order']['tokenNumber']):
-				obj = Pyro4.Proxy("PYRONAME:lavic.server.announcer2")
+				print str(message['fromName'])
+				obj = Pyro4.Proxy(message['fromName'])
 				print  "[[[[[[[]]]]]]]]]]", obj
 				print 'taking order'
 				res = obj.take_order()
